@@ -1,0 +1,83 @@
+﻿<div class="row no-gutters m-3">
+    <div class="card col-sm-12 col-md-10 col-lg-6 mx-auto shadow">
+        <div class="card-header text-center bg-success">
+            <h3 class="m-0 text-white">Car Insurance Quote</h3>
+            <small class="text-white">Starting as low as $50 per month</small>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("Quote", "Home", FormMethod.Post))
+            {
+                <h5 class="text-success">Driver Details</h5>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="validationDefaultFirstName">First Name</label>
+                        <input name="FirstName" type="text" class="form-control" placeholder="" id="validationDefaultFirstName" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="LastName">Last Name</label>
+                        <input name="LastName" type="text" class="form-control" placeholder="" />
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="EmailAddress">Email Address</label>
+                        <input name="EmailAddress" type="email" class="form-control" placeholder="you@email.com" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="DateOfBirth">Date of Birth</label>
+                        <input name="DateOfBirth" type="date" class="form-control" placeholder="" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="SpeedingTickets">How many speeding tickets do you have?</label>
+                        <input name="SpeedingTickets" type="number" class="form-control" placeholder="" />
+                    </div>
+                    <div class="form-group col-md-12">
+                        <div class="custom-control custom-checkbox">
+                            <input name="DUI" type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1">Check if you have ever had a DUI</label>
+                        </div>
+                    </div>
+                </div>
+                <h5 class="text-success">Car Details</h5>
+                <div class="form-row">
+                    <div class="form-group col-md-2">
+                        <label for="CarYear">Year</label>
+                        <input name="DateOfBirth" type="number" class="form-control" placeholder="YYYY" />
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="CarMake">Make</label>
+                        <input name="CarMake" type="text" class="form-control" placeholder="" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="CarModel">Model</label>
+                        <input name="CarModel" type="text" class="form-control" placeholder="" />
+                    </div>
+                </div>
+                <h5 class="text-success">Coverage <small class="text-muted">You must check one</small></h5>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <div class="custom-control custom-checkbox">
+                            <input name="Liability" type="checkbox" class="custom-control-input" id="customCheck2">
+                            <label class="custom-control-label" for="customCheck2">Check for Liability Only</label>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <div class="custom-control custom-checkbox">
+                            <input name="FullCoverage" type="checkbox" class="custom-control-input" id="customCheck3">
+                            <label class="custom-control-label" for="customCheck3">Check for Full Coverage</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-block btn-success">Submit to recieve your quote below</button>
+                </div>
+                <h5 class="text-success">Quote</h5>
+                <div class="form-row">
+                    <div class="form-group form-inline">
+                        <label for="QuoteTotal" class="font-weight-bold col-md-7">Monthly Car Insurance Total</label>
+                        <div class="input-group col-md-4">
+                            <span class="input-group-text font-weight-bold">$</span>
+                            <input name="QuoteTotal" type="number" class="form-control font-weight-bold" placeholder="0.00" disabled />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
