@@ -2,7 +2,7 @@
 @model List<QuoteVm>
 
 <div class="row no-gutters m-3">
-    <div class="card col-sm-12 col-md-10 col-lg-6 mx-auto shadow">
+    <div class="card col-sm-12 col-md-10 col-lg-8 mx-auto shadow">
         <div class="card-header text-center">
             <h5 class="m-0">Customer Quotes</h5>
         </div>
@@ -16,19 +16,19 @@
                         <div class="col-2">
                             @quote.FirstName
                         </div>
-                        <div class="col">
+                        <div class="col-2">
                             @quote.LastName
                         </div>
                         <div class="col-4">
                             @quote.EmailAddress
                         </div>
-                        <div class="col-4">
+                        <div class="col-2">
                             @quote.QuoteTotal
-                            <div class="col">
-                                <button type="submit" class="btn btn-danger btn-block">
-                                    Cancel
-                                </button>
-                            </div>
+                        </div>
+                        <div class="col-2">
+                            <button type="submit" class="btn btn-danger btn-block">
+                                Cancel
+                            </button>
                         </div>
                     </div>
                 }

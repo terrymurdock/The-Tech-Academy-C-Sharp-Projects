@@ -10,8 +10,8 @@
                 <h5 class="text-success">Driver Details</h5>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="validationDefaultFirstName">First Name</label>
-                        <input name="FirstName" type="text" class="form-control" placeholder="" id="validationDefaultFirstName" />
+                        <label for="FirstName">First Name</label>
+                        <input name="FirstName" type="text" class="form-control" placeholder="" id="FirstName" />
                     </div>
                     <div class="form-group col-md-6">
                         <label for="LastName">Last Name</label>
@@ -31,8 +31,8 @@
                     </div>
                     <div class="form-group col-md-12">
                         <div class="custom-control custom-checkbox">
-                            <input name="DUI" type="checkbox" class="custom-control-input" id="customCheck1">
-                            <label class="custom-control-label" for="customCheck1">Check if you have ever had a DUI</label>
+                            <input name="DUI" type="checkbox" class="custom-control-input" id="DUI" value="false" onchange="this.value=this.checked">
+                            <label class="custom-control-label" for="DUI">Check if you have ever had a DUI</label>
                         </div>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-2">
                         <label for="CarYear">Year</label>
-                        <input name="DateOfBirth" type="number" class="form-control" placeholder="YYYY" />
+                        <input name="CarYear" type="number" class="form-control" placeholder="YYYY" />
                     </div>
                     <div class="form-group col-md-4">
                         <label for="CarMake">Make</label>
@@ -55,14 +55,14 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <div class="custom-control custom-checkbox">
-                            <input name="Liability" type="checkbox" class="custom-control-input" id="customCheck2">
-                            <label class="custom-control-label" for="customCheck2">Check for Liability Only</label>
+                            <input name="Liability" type="checkbox" class="custom-control-input" id="Liability" value="false" onchange="this.value=this.checked">
+                            <label class="custom-control-label" for="Liability">Check for Liability Only</label>
                         </div>
                     </div>
                     <div class="form-group col-md-6">
                         <div class="custom-control custom-checkbox">
-                            <input name="FullCoverage" type="checkbox" class="custom-control-input" id="customCheck3">
-                            <label class="custom-control-label" for="customCheck3">Check for Full Coverage</label>
+                            <input name="FullCoverage" type="checkbox" class="custom-control-input" id="FullCoverage" value="false" onchange="this.value=this.checked">
+                            <label class="custom-control-label" for="FullCoverage">Check for Full Coverage</label>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-block btn-success">Submit to recieve your quote below</button>

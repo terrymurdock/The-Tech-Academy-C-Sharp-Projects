@@ -17,10 +17,10 @@
           <Property Name="CarYear" Type="int" />
           <Property Name="CarMake" Type="varchar" MaxLength="50" />
           <Property Name="CarModel" Type="varchar" MaxLength="50" />
-          <Property Name="DUI" Type="bit" Nullable="false" />
+          <Property Name="DUI" Type="bit" />
           <Property Name="SpeedingTickets" Type="int" />
-          <Property Name="FullCoverage" Type="bit" Nullable="false" />
-          <Property Name="Liability" Type="bit" Nullable="false" />
+          <Property Name="FullCoverage" Type="bit" />
+          <Property Name="Liability" Type="bit" />
           <Property Name="QuoteTotal" Type="money" />
           <Property Name="Removed" Type="datetime" />
         </EntityType>
@@ -42,10 +42,10 @@
           <Property Name="CarYear" Type="Int32" />
           <Property Name="CarMake" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CarModel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DUI" Type="Boolean" Nullable="false" />
+          <Property Name="DUI" Type="Boolean" />
           <Property Name="SpeedingTickets" Type="Int32" />
-          <Property Name="FullCoverage" Type="Boolean" Nullable="false" />
-          <Property Name="Liability" Type="Boolean" Nullable="false" />
+          <Property Name="FullCoverage" Type="Boolean" />
+          <Property Name="Liability" Type="Boolean" />
           <Property Name="QuoteTotal" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Removed" Type="DateTime" Precision="3" />
           <Property Name="DateOfBirth" Type="DateTime" Precision="3" />

@@ -33,11 +33,11 @@ namespace CarInsuranceQuoteMVCApp.Controllers
                 return View(quoteVms);
             }
         }
-        public ActionResult Unsubscribe(int id)
+        public ActionResult Unsubscribe(int quoteID)
         {
             using (CarInsuranceQuotesEntities db = new CarInsuranceQuotesEntities())
             {
-                var quote = db.Quotes.Find(id);
+                var quote = db.Quotes.Find(quoteID);
                 quote.Removed = DateTime.Now;
                 db.SaveChanges();
             }

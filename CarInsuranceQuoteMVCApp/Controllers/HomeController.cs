@@ -1,5 +1,6 @@
 ﻿using CarInsuranceQuoteMVCApp.Models;
 using System;
+using System.Activities.Expressions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,11 +16,12 @@ namespace CarInsuranceQuoteMVCApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Quote(string firstName, string lastName, string emailAddress, DateTime dateOfBirth, int carYear, 
-                                  string carMake, string carModel, bool dUI, int speedingTickets, bool fullCoverage, bool liability,
-                                  decimal quoteTotal)
+        public ActionResult Quote(string firstName, string lastName, string emailAddress, DateTime? dateOfBirth, int? carYear, 
+                                  string carMake, string carModel, int? speedingTickets, bool? dUI = false, 
+                                  bool? fullCoverage = false, bool? liability = false, decimal? quoteTotal = 50.00m)
         {
-            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(emailAddress))
+            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(emailAddress) || 
+                dateOfBirth == null || carYear == null || string.IsNullOrEmpty(carMake) || string.IsNullOrEmpty(carModel))
             {
                 return View("~/Views/Shared/Error.cshtml");
             }
@@ -42,7 +44,9 @@ namespace CarInsuranceQuoteMVCApp.Controllers
                         Liability = liability,
                         QuoteTotal = quoteTotal
                 };
-                    var driverAge = DateTime.Now.Year - dateOfBirth.Year;
+                    DateTime dob = Convert.ToDateTime(dateOfBirth);
+                    var driverAge = DateTime.Now.Year - dob.Year;
+
                     if (driverAge < 25 || driverAge > 100)
                     {
                         quoteTotal += 25.00m;
@@ -65,17 +69,17 @@ namespace CarInsuranceQuoteMVCApp.Controllers
                     }
                     if (speedingTickets > 0)
                     {
-                        quoteTotal += (speedingTickets * 10.00m);
+                        quoteTotal += speedingTickets * 10.00m;
                     }
                     if (dUI == true)
                     {
-                        quoteTotal *= .25m;
+                        quoteTotal *= 1.25m;
                     }
                     if (fullCoverage == true)
                     {
-                        quoteTotal *= .5m;
+                        quoteTotal *= 1.5m;
                     }
-
+                     
                     db.Quotes.Add(quote);
                     db.SaveChanges();
                 }
