@@ -33,6 +33,9 @@ namespace CarInsuranceQuoteMVCApp.Controllers
                 return View(quoteVms);
             }
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Unsubscribe(int quoteID)
         {
             using (CarInsuranceQuotesEntities db = new CarInsuranceQuotesEntities())

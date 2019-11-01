@@ -17,7 +17,7 @@
     <Property Name="Liability" Type="Boolean" />
     <Property Name="QuoteTotal" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="Removed" Type="DateTime" Precision="3" />
-    <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
   </EntityType>
   <EntityContainer Name="CarInsuranceQuotesEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Quotes" EntityType="Self.Quote" />

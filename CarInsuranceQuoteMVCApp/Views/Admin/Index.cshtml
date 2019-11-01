@@ -7,32 +7,35 @@
             <h5 class="m-0">Customer Quotes</h5>
         </div>
         <div class="card-body">
-            @foreach (var quote in Model)
-            {
-                using (Html.BeginForm("Unsubscribe", "Admin", FormMethod.Post))
-                {
-                    <input type="hidden" name="QuoteId" value="@quote.QuoteID" />
-                    <div class="row mb-3">
-                        <div class="col-2">
-                            @quote.FirstName
-                        </div>
-                        <div class="col-2">
-                            @quote.LastName
-                        </div>
-                        <div class="col-4">
-                            @quote.EmailAddress
-                        </div>
-                        <div class="col-2">
-                            @quote.QuoteTotal
-                        </div>
-                        <div class="col-2">
-                            <button type="submit" class="btn btn-danger btn-block">
-                                Cancel
-                            </button>
-                        </div>
-                    </div>
-                }
-            }
+            <table class="table table-hover table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">Quote ID</th>
+                        <th scope="col">First name</th>
+                        <th scope="col">Last name</th>
+                        <th scope="col">Email Address</th>
+                        <th scope="col">Quote Total</th>
+                        <th scope="col" class="text-center">Cancel</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var quote in Model)
+                    {
+                        using (Html.BeginForm("Unsubscribe", "Admin", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <tr>
+                                <th scope="row">@quote.QuoteID</th>
+                                <td>@quote.FirstName</td>
+                                <td>@quote.LastName</td>
+                                <td>@quote.EmailAddress</td>
+                                <td>$@string.Format("{0:0.00}", quote.QuoteTotal)</td>
+                                <td><button type="submit" class="btn btn-danger btn-block">Cancel</button></td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

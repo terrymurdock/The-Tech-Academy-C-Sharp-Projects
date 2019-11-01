@@ -26,7 +26,7 @@ namespace CarInsuranceQuoteMVCApp.Models
         public Nullable<bool> FullCoverage { get; set; }
         public Nullable<bool> Liability { get; set; }
         public Nullable<decimal> QuoteTotal { get; set; }
-        public Nullable<System.DateTime> Removed { get; set; }
         public Nullable<System.DateTime> DateOfBirth { get; set; }
+        public Nullable<System.DateTime> Removed { get; set; }
     }
 }

@@ -1,0 +1,132 @@
+﻿@model CarInsuranceQuoteMVCApp.Models.Quote
+
+@if (Model != null)
+{
+    <div class="row no-gutters m-3">
+        <div class="card col-sm-12 col-md-10 col-lg-6 mx-auto shadow">
+            <div class="card-header text-center bg-success">
+                <h3 class="m-0 text-white">Car Insurance Quote</h3>
+                <small class="text-white">Starting as low as $50 per month</small>
+            </div>
+            <div class="card-body">
+                <h5 class="text-success">Driver Details</h5>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="FirstName">First Name</label>
+                        <input name="FirstName" type="text" class="form-control" value="@Model.FirstName" id="FirstName" disabled />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="LastName">Last Name</label>
+                        <input name="LastName" type="text" class="form-control" value="@Model.LastName" disabled />
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="EmailAddress">Email Address</label>
+                        <input name="EmailAddress" type="email" class="form-control" value="@Model.EmailAddress" placeholder="you@email.com" disabled />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="mt-n1">Date Of Birth</label>
+                        <button type="button" class="btn btn-block bg-light border border-secondary text-secondary text-left mt-0">@string.Format("{0:d}", Model.DateOfBirth)</button>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="SpeedingTickets">How many speeding tickets do you have?</label>
+                        <input name="SpeedingTickets" type="number" class="form-control" value="@Model.SpeedingTickets" disabled />
+                    </div>
+                    <div class="form-group col-md-12">
+                        <div class="form-check">
+                            @if (Model.DUI != true)
+                            {
+                                <input name="DUI" type="checkbox" class="form-check-input" id="DUI" value="false" disabled>
+                            }
+                            else
+                            {
+                                <input name="DUI" type="checkbox" class="form-check-input" id="DUI" value="true" checked disabled>
+                            }
+                            <label class="form-check-label" for="DUI">Check if you have ever had a DUI</label>
+                        </div>
+                    </div>
+                </div>
+                <h5 class="text-success">Car Details</h5>
+                <div class="form-row">
+                    <div class="form-group col-md-2">
+                        <label for="CarYear">Year</label>
+                        <input name="CarYear" type="number" class="form-control" value="@Model.CarYear" disabled />
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="CarMake">Make</label>
+                        <input name="CarMake" type="text" class="form-control" value="@Model.CarMake" disabled />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="CarModel">Model</label>
+                        <input name="CarModel" type="text" class="form-control" value="@Model.CarModel" disabled />
+                    </div>
+                </div>
+                <h5 class="text-success">Coverage <small class="text-muted">You must check one</small></h5>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <div class="form-check">
+                            @if (Model.Liability != true)
+                            {
+                                <input name="Liability" type="checkbox" class="form-check-input" id="Liability" value="false" disabled>
+                            }
+                            else
+                            {
+                                <input name="Liability" type="checkbox" class="form-check-input" id="Liability" value="true" checked disabled>
+                            }
+                            <label class="form-check-label" for="Liability">Check for Liability Only</label>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <div class="form-check">
+                            @if (Model.FullCoverage != true)
+                            {
+                                <input name="FullCoverage" type="checkbox" class="form-check-input" id="FullCoverage" value="false" disabled>
+                            }
+                            else
+                            {
+                                <input name="FullCoverage" type="checkbox" class="form-check-input" id="FullCoverage" value="true" checked disabled>
+                            }
+                            <label class="form-check-label" for="FullCoverage">Check for Full Coverage</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-white bg-success shadow-lg">
+                <h4 class="text-left">Your Personalized Car Insurance Quote</h4>
+                <div class="text-center">
+                    <span class="font-weight-bold">Monthly Car Insurance Payment of  </span><span class="font-weight-bolder"> $@string.Format("{0:0.00}", Model.QuoteTotal)</span>
+                </div>
+            </div>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal" id="myModalButton" style="display: none">
+                Launch modal
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header bg-success">
+                            <h4 class="modal-title text-white" id="myModalLabel">Your Personalized Quote</h4>
+                            <button type="button" class="close text-right text-white-50" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <span class="font-weight-bold">Monthly Car Insurance Payment of  </span><span class="text-success font-weight-bolder"> $@string.Format("{0:0.00}", Model.QuoteTotal)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                function clickModal() {
+                    $("#myModalButton").click();
+                }
+                setTimeout(clickModal, 400);
+            </script>
+
+        </div>
+    </div>
+}
+else
+{
+    <h5>Quote not found.</h5>
+}
