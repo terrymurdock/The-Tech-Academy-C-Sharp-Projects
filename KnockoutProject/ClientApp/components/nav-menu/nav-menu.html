@@ -1,0 +1,33 @@
+<div class='main-nav'>
+        <div class='navbar navbar-inverse'>
+        <div class='navbar-header'>
+            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
+                <span class='sr-only'>Toggle navigation</span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+            </button>
+            <a class='navbar-brand' href='/'>KnockoutProject</a>
+        </div>
+        <div class='clearfix'></div>
+        <div class='navbar-collapse collapse'>
+            <ul class='nav navbar-nav'>
+                <li>
+                    <a data-bind='attr: { href: router.link("/") }, css: { active: route().page === "home-page" }'>
+                        <span class='glyphicon glyphicon-home'></span> Home
+                    </a>
+                </li>
+                <li>
+                    <a href='/about' data-bind='css: { active: route().page === "about" }'>
+                        <span class='glyphicon glyphicon-tags'></span> About
+                    </a>
+                </li>
+                <li>
+                    <a href='/Home/VisitorsLogbookMvc' data-external="true">
+                        <span class='glyphicon glyphicon-blackboard'></span> Visitors Logbook
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

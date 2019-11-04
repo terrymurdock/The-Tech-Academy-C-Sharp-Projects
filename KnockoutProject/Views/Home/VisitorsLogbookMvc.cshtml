@@ -1,0 +1,54 @@
+@model KnockoutProject.ViewModels.VisitorsLogbookViewModel
+@{
+    ViewData["Title"] = "Vistiors Logbook";
+}
+<div class='container-fluid'>
+    <div class='row'>
+        <div class='col-xs-9 col-xs-offset-1'>
+            <h1>@ViewData["Title"]</h1>
+            <div class="row">
+                <div class="col-md-1">
+                    <a asp-action="Index" asp-controller="Home">
+                        Home
+                    </a>
+                </div>
+                <div class="col-md-1">
+                    <a asp-action="Index" asp-controller="About">
+                        About
+                    </a>
+                </div>
+                <div class="col-md-8">
+                        Note: Submit is not functional, but it will show a validation error if nothing is entered
+                </div>
+            </div>
+            <form asp-controller="Home" asp-action="VisitorsLogbookMvc"
+                  method="post" class="form-horizontal">
+                <div class="form-group">
+                    <label asp-for="VisitorsLogbook" class="control-label"></label>
+                    <div class="col-xs-12">
+                        <input asp-for="VisitorsLogbook" type="text" class="form-control"
+                               data-bind="textInput: VisitorsLogbook" />
+                        <span asp-validation-for="VisitorsLogbook"
+                              class="text-danger"></span>
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label for="mirror_input" class="control-label">
+                        Mirror:
+                    </label>
+                    <div class="col-xs-12">
+                        <p class="form-control-static"
+                           data-bind="text: VisitorsLogbook"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section scripts {
+    <script src="~/dist/mvc.js" asp-append-version="true"></script>
+}
